@@ -1,5 +1,4 @@
-# Project-2-Study-Guide-Webpage
-
+# The-devBlog
 
 ## Description
 
@@ -25,13 +24,6 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
     ```md
     ![alt text](assets/images/screenshot.png)
     ```
-
-## Credits
-
-https://github.com/Douped
-https://github.com/grown-simba
-https://github.com/Nick-JDA
-
 
 ## License
 
