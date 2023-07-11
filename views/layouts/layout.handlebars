@@ -10,15 +10,7 @@
   <link rel='stylesheet' href='/css/reset.css' />
 </head>
 <body>
-  <header>
-        <a id="logDiv">
-          {{#if logged_in}}
-          <button id='logBtn' class='btn btn-primary'>Logout</button>
-          {{else}}
-          <button id='logBtn' onclick="location.href='/login';" class='btn btn-primary'>Login</button>
-          {{/if}}
-        </a>
-  </header>
+{{> navbar}}
   <main>
     <!-- Body -->
     {{{body}}}
