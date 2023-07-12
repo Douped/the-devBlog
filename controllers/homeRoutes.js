@@ -8,11 +8,11 @@ router.get('/login', (req, res) => {
     res.redirect('/');
     return;
   }
-  res.render('login', { layout: 'layout' });
+  res.render('login');
 });
 
 router.get('/', async (req, res) => {
-  res.render('home', { layout: 'layout', logged_in: req.session.logged_in });
+  res.render('home', { logged_in: req.session.logged_in });
 });
 
 router.get('/dashBoard', async (req, res) => {
