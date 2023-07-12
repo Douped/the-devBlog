@@ -12,7 +12,20 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/', async (req, res) => {
-  res.render('home', { logged_in: req.session.logged_in });
+  try {
+    const posts = await Posts.findAll({ include: [{ model: Users }] });
+    console.log(posts);
+    const posting = posts.map((msg) => msg.get({ plain: true }));
+
+    console.log('posting:', posting);
+
+    res.render('home', {
+      posting,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json({ message: 'Error displaying posts', error: err });
+  }
 });
 
 router.get('/dashBoard', async (req, res) => {
