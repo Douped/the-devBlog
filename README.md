@@ -1,7 +1,7 @@
 # The-devBlog
 
 ## Description
-Blog website made using the model view controller principle. Currently will render pre-seeded posts to the homepage and allows for login/logout functionality. Adding 
+Blog website made using the model view controller principle. Currently will render pre-seeded posts to the homepage and allows for login/logout functionality. Functionality for adding posts is currently not working.
 
 ## Installation
 run npm install on the root folder
