@@ -1,14 +1,26 @@
 [
     {
      "title": "Why MVC is so important",
-     "userName":"Xandromus",
+     "username":"Xandromus",
      "date":"5/8/2020",
      "comment":"lorem20"
     },
     {
      "title": "Why MVC is so awesome",
-     "userName":"Xandromus",
+     "username":"Xandromus",
      "date":"5/8/2020",
      "comment":"lorem20"
+    }
+    {
+     "title": "Testing time",
+     "username":"doped",
+     "date":"5/8/2020",
+     "comment":"nice one"
+    }
+    {
+     "title": "test2",
+     "username":"doped",
+     "date":"5/8/2020",
+     "comment":"sweet"
     }
  ]

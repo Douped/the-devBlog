@@ -14,11 +14,7 @@ router.get('/login', (req, res) => {
 router.get('/', async (req, res) => {
   try {
     const posts = await Posts.findAll({ include: [{ model: Users }] });
-    console.log(posts);
     const posting = posts.map((msg) => msg.get({ plain: true }));
-
-    console.log('posting:', posting);
-
     res.render('home', {
       posting,
       logged_in: req.session.logged_in,
@@ -29,11 +25,21 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/dashBoard', async (req, res) => {
-  console.log(req.query.id);
+  try {
+    const dashData = await Users.findByPk(req.session.user_id, {
+      include: [{ model: Posts }],
+    });
 
-  res.render('homepage', {
-    logged_in: req.session.logged_in,
-  });
+    const dashes = dashData.get({ plain: true });
+    const posts = dashes.posts;
+    res.render('dashboard', {
+      posts,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: 'error not logged in', error: err });
+  }
 });
 
 module.exports = router;

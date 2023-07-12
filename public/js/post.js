@@ -6,7 +6,7 @@ const makePost = async (event) => {
   console.log(content);
 
   if (title && content) {
-    const response = await fetch(`/api/post`, {
+    const response = await fetch(`/api/posts`, {
       method: 'POST',
       body: JSON.stringify({ title, content }),
       headers: { 'Content-Type': 'application/json' },
@@ -19,4 +19,22 @@ const makePost = async (event) => {
   }
 };
 
-document.querySelector('.submitPost').addEventListener('submit', makePost);
+document.querySelector('.submit').addEventListener('click', makePost);
+
+const removePost = async (event) => {
+  if (event.target.hasAttribute('data-id')) {
+    const id = event.target.getAttribute('data-id');
+    console.log(id);
+    const response = await fetch(`/api/posts/${id}`, {
+      method: 'DELETE',
+    });
+
+    if (response.ok) {
+      document.location.replace('/dashboard');
+    } else {
+      alert('failed to delete');
+    }
+  }
+};
+
+document.querySelector('.removeButton').addEventListener('click', removePost);
